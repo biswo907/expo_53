@@ -1,38 +1,19 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import "react-native-reanimated";
+import { Drawer } from "expo-router/drawer";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { Provider } from "react-redux";
-import { store } from "../redux/store";
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf")
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
+export default function DrawerLayout() {
   return (
-    <Provider store={store}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </Provider>
+    <Drawer
+      screenOptions={{
+        headerStyle: { backgroundColor: "#6200ee" },
+        headerTintColor: "#fff",
+        drawerActiveTintColor: "#6200ee",
+        drawerLabelStyle: { fontSize: 18, color: "black" },
+        drawerStyle: { backgroundColor: "white" }
+      }}
+    >
+      <Drawer.Screen name="index" options={{ title: "Home" }} />
+      <Drawer.Screen name="tabs" options={{ title: "Tabs" }} />
+      <Drawer.Screen name="settings" options={{ title: "Settings" }} />
+    </Drawer>
   );
 }
