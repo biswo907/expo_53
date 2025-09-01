@@ -29,6 +29,9 @@ const ProfileScreen = () => {
   const handleRegister = () => {
     router.push("/register");
   };
+  const handleEditProfile = () => {
+    router.push("/(drawer)");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,7 +71,10 @@ const ProfileScreen = () => {
             </View>
           </View>
 
-          <TouchableOpacity style={styles.editButton}>
+          <TouchableOpacity
+            onPress={handleEditProfile}
+            style={styles.editButton}
+          >
             <Text style={styles.editButtonText}>Edit Profile</Text>
           </TouchableOpacity>
         </View>
