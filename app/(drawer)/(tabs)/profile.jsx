@@ -24,7 +24,7 @@ const ProfileScreen = () => {
   };
 
   const handleallUser = () => {
-    router.push("/user");
+    router.push("/employee/employee");
   };
   const handleRegister = () => {
     router.push("/register");
@@ -89,7 +89,7 @@ const ProfileScreen = () => {
                 <Ionicons name="people-outline" size={24} color="#fff" />
               </View>
               <View style={styles.navTextContainer}>
-                <Text style={styles.navTitle}>View All Users</Text>
+                <Text style={styles.navTitle}>View All Employee</Text>
                 <Text style={styles.navSubtitle}>Browse community members</Text>
               </View>
             </View>
@@ -120,8 +120,8 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f9fa",
-    paddingTop: 50
+    backgroundColor: "#f8f9fa"
+    // paddingTop: 50
   },
   header: {
     flexDirection: "row",

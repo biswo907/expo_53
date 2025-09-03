@@ -1,0 +1,155 @@
+{
+  "regions": [
+    {
+      "id": "east",
+      "name": "East",
+      "countries": [
+        {
+          "id": "in",
+          "name": "India",
+          "states": [
+            {
+              "id": "od",
+              "name": "Odisha",
+              "districts": ["Khordha", "Cuttack", "Puri", "Sambalpur"]
+            },
+            {
+              "id": "wb",
+              "name": "West Bengal",
+              "districts": ["Kolkata", "Howrah", "Darjeeling", "Durgapur"]
+            }
+          ]
+        },
+        {
+          "id": "bd",
+          "name": "Bangladesh",
+          "states": [
+            {
+              "id": "dh",
+              "name": "Dhaka",
+              "districts": ["Dhaka City", "Gazipur", "Narayanganj"]
+            },
+            {
+              "id": "ctg",
+              "name": "Chattogram",
+              "districts": ["Chattogram City", "Cox's Bazar", "Rangamati"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west",
+      "name": "West",
+      "countries": [
+        {
+          "id": "pk",
+          "name": "Pakistan",
+          "states": [
+            {
+              "id": "sd",
+              "name": "Sindh",
+              "districts": ["Karachi", "Hyderabad", "Sukkur"]
+            },
+            {
+              "id": "pb",
+              "name": "Punjab",
+              "districts": ["Lahore", "Faisalabad", "Rawalpindi"]
+            }
+          ]
+        },
+        {
+          "id": "af",
+          "name": "Afghanistan",
+          "states": [
+            {
+              "id": "kb",
+              "name": "Kabul",
+              "districts": ["Kabul City", "Paghman", "Bagrami"]
+            },
+            {
+              "id": "hr",
+              "name": "Herat",
+              "districts": ["Herat City", "Guzara", "Shindand"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "north",
+      "name": "North",
+      "countries": [
+        {
+          "id": "np",
+          "name": "Nepal",
+          "states": [
+            {
+              "id": "pn",
+              "name": "Province 1",
+              "districts": ["Biratnagar", "Jhapa", "Sunsari"]
+            },
+            {
+              "id": "pg",
+              "name": "Province 3",
+              "districts": ["Kathmandu", "Bhaktapur", "Lalitpur"]
+            }
+          ]
+        },
+        {
+          "id": "bt",
+          "name": "Bhutan",
+          "states": [
+            {
+              "id": "th",
+              "name": "Thimphu",
+              "districts": [
+                "Thimphu District",
+                "Paro District",
+                "Punakha District"
+              ]
+            },
+            {
+              "id": "pr",
+              "name": "Paro",
+              "districts": ["Paro Dzong", "Haa", "Chukha"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "south",
+      "name": "South",
+      "countries": [
+        {
+          "id": "sl",
+          "name": "Sri Lanka",
+          "states": [
+            {
+              "id": "wc",
+              "name": "Western Province",
+              "districts": ["Colombo", "Gampaha", "Kalutara"]
+            },
+            {
+              "id": "sp",
+              "name": "Southern Province",
+              "districts": ["Galle", "Matara", "Hambantota"]
+            }
+          ]
+        },
+        {
+          "id": "mv",
+          "name": "Maldives",
+          "states": [
+            {
+              "id": "ml",
+              "name": "Malé",
+              "districts": ["Malé City", "Hulhumalé", "Vilimalé"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

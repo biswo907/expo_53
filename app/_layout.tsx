@@ -1,19 +1,11 @@
-import { Drawer } from "expo-router/drawer";
+import { Stack } from "expo-router";
 
-export default function DrawerLayout() {
+export default function RootLayout() {
   return (
-    <Drawer
-      screenOptions={{
-        headerStyle: { backgroundColor: "#6200ee" },
-        headerTintColor: "#fff",
-        drawerActiveTintColor: "#6200ee",
-        drawerLabelStyle: { fontSize: 18, color: "black" },
-        drawerStyle: { backgroundColor: "white" }
-      }}
-    >
-      <Drawer.Screen name="index" options={{ title: "Home" }} />
-      <Drawer.Screen name="tabs" options={{ title: "Tabs" }} />
-      <Drawer.Screen name="settings" options={{ title: "Settings" }} />
-    </Drawer>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" options={{ title: "Home" }} />
+      <Stack.Screen name="mapScreen" options={{ title: "Map" }} />
+      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
