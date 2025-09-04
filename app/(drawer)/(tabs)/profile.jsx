@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import { useAuth } from "../../../context/AuthContext";
 
 const ProfileScreen = () => {
   const userData = {
@@ -32,6 +33,8 @@ const ProfileScreen = () => {
   const handleEditProfile = () => {
     router.push("/(drawer)");
   };
+
+  const { logout } = useAuth();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -106,6 +109,21 @@ const ProfileScreen = () => {
                 <Text style={styles.navTitle}>Register</Text>
                 <Text style={styles.navSubtitle}>
                   Store Data in Asyns Storage
+                </Text>
+              </View>
+            </View>
+            <MaterialIcons name="keyboard-arrow-right" size={24} color="#999" />
+          </TouchableOpacity>
+          {/* Logout */}
+          <TouchableOpacity style={styles.navCard} onPress={logout}>
+            <View style={styles.navCardContent}>
+              <View style={[styles.navIcon, { backgroundColor: "#6C63FF" }]}>
+                <Ionicons name="people-outline" size={24} color="#fff" />
+              </View>
+              <View style={styles.navTextContainer}>
+                <Text style={styles.navTitle}>Logout</Text>
+                <Text style={styles.navSubtitle}>
+                  Remove Data in Asyns Storage
                 </Text>
               </View>
             </View>
