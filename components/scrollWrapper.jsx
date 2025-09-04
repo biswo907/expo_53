@@ -1,4 +1,6 @@
+// ScrollWrapper.js
 import {
+  FlatList,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -10,24 +12,26 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ScrollWrapper({
   children,
-  bodyColor = "#ffffff", // main screen color
-  statusBarColor = "#ffffff", // top bar color
-  statusBarStyle = "dark-content", //light-content
-  contentContainerStyle = {},
+  bodyColor = "#ffffff",
+  statusBarColor = "#ffffff",
+  statusBarStyle = "dark-content",
+  handleWrapperStyle = {},
   scrollEnabled = true,
-  keyboardVerticalOffset = 0
+  keyboardVerticalOffset = 0,
+  asFlatList = false, // NEW PROP
+  flatListProps = {} // if using FlatList
 }) {
   const insets = useSafeAreaInsets();
 
   return (
     <View style={styles.flex}>
-      {/* Top safe area explicitly colored */}
+      {/* Safe area top */}
       <View style={{ height: insets.top, backgroundColor: statusBarColor }} />
 
       <StatusBar
         translucent={false}
         barStyle={statusBarStyle}
-        backgroundColor={statusBarColor} // works on Android only
+        backgroundColor={statusBarColor}
       />
 
       <KeyboardAvoidingView
@@ -35,16 +39,27 @@ export default function ScrollWrapper({
         behavior={Platform.OS === "ios" ? "padding" : undefined}
         keyboardVerticalOffset={keyboardVerticalOffset + insets.top}
       >
-        <ScrollView
-          style={[styles.flex, { backgroundColor: bodyColor }]}
-          contentContainerStyle={[styles.scrollContent, contentContainerStyle]}
-          keyboardShouldPersistTaps="handled"
-          scrollEnabled={scrollEnabled}
-        >
-          {children}
-          {/* Spacer at bottom */}
-          <View style={{ height: insets.bottom }} />
-        </ScrollView>
+        {asFlatList ? (
+          <FlatList
+            {...flatListProps}
+            style={[styles.flex, { backgroundColor: bodyColor }]}
+            contentContainerStyle={[
+              styles.scrollContent,
+              handleWrapperStyle,
+              flatListProps.contentContainerStyle
+            ]}
+          />
+        ) : (
+          <ScrollView
+            style={[styles.flex, { backgroundColor: bodyColor }]}
+            contentContainerStyle={[styles.scrollContent, handleWrapperStyle]}
+            keyboardShouldPersistTaps="handled"
+            scrollEnabled={scrollEnabled}
+          >
+            {children}
+            <View style={{ height: insets.bottom }} />
+          </ScrollView>
+        )}
       </KeyboardAvoidingView>
     </View>
   );
